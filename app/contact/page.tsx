@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { SectionHeading } from "@/components/ui";
 import { SITE } from "@/lib/site";
+import { PageBanner } from "@/components/art";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,15 +14,13 @@ export default function ContactPage() {
   const lines = [SITE.phones.office, SITE.phones.contract, SITE.phones.dispatch];
   return (
     <>
-      <section className="bg-gradient-to-b from-navy-800 to-navy-950 py-20">
-        <div className="mx-auto max-w-6xl px-5">
-          <SectionHeading
-            eyebrow="Get in touch"
-            title="Talk to us about your security needs"
-            lead="Call any time, or send a message and our team will get back to you."
-          />
-        </div>
-      </section>
+      <PageBanner motif="radio" variant={3}>
+        <SectionHeading
+          eyebrow="Get in touch"
+          title="Talk to us about your security needs"
+          lead="Call any time, or send a message and our team will get back to you."
+        />
+      </PageBanner>
 
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 lg:grid-cols-[1fr_1.1fr]">
         <div className="space-y-8">

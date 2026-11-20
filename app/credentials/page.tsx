@@ -3,6 +3,7 @@ import Image from "next/image";
 import dims from "@/lib/image-dims.json";
 import { CREDENTIALS, TESTIMONIALS } from "@/lib/site";
 import { ButtonLink, SectionHeading } from "@/components/ui";
+import { PageBanner, Stars } from "@/components/art";
 
 export const metadata: Metadata = {
   title: "Credentials & Testimonials",
@@ -15,15 +16,13 @@ const d = dims as unknown as Record<string, [number, number]>;
 export default function CredentialsPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-navy-800 to-navy-950 py-20">
-        <div className="mx-auto max-w-6xl px-5">
-          <SectionHeading
-            eyebrow="Testimonials & ongoing certs"
-            title="Proof, not promises"
-            lead="Accreditations, certifications and the clients who vouch for us."
-          />
-        </div>
-      </section>
+      <PageBanner motif="seal" variant={2}>
+        <SectionHeading
+          eyebrow="Testimonials & ongoing certs"
+          title="Proof, not promises"
+          lead="Accreditations, certifications and the clients who vouch for us."
+        />
+      </PageBanner>
 
       <section className="mx-auto max-w-6xl px-5 py-16">
         <h2 className="font-serif text-2xl text-white">Certifications &amp; awards</h2>
@@ -54,7 +53,7 @@ export default function CredentialsPage() {
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (
               <figure key={t.name} className="flex flex-col rounded-2xl border border-navy-900/10 bg-white p-7 shadow-sm">
-                <div aria-label="5 out of 5 stars" className="text-lg tracking-widest text-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <Stars label="5 out of 5 stars" />
                 <blockquote className="mt-4 flex-1 leading-relaxed text-slate-700">&ldquo;{t.quote}&rdquo;</blockquote>
                 <figcaption className="mt-6 border-t border-navy-900/10 pt-4">
                   <p className="font-semibold text-navy-900">{t.name}</p>

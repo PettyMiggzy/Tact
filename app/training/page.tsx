@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHeading, ButtonLink } from "@/components/ui";
 import { SITE } from "@/lib/site";
+import { PageBanner } from "@/components/art";
 
 export const metadata: Metadata = {
   title: "Training",
@@ -39,15 +40,13 @@ function src(v: Video) {
 export default function TrainingPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-navy-800 to-navy-950 py-20">
-        <div className="mx-auto max-w-6xl px-5">
-          <SectionHeading
-            eyebrow="Courtesy officer training"
-            title="We train to win. Every time."
-            lead="Real scenarios, real equipment, real documentation. Watch our officers train and respond."
-          />
-        </div>
-      </section>
+      <PageBanner motif="target" variant={0}>
+        <SectionHeading
+          eyebrow="Courtesy officer training"
+          title="We train to win. Every time."
+          lead="Real scenarios, real equipment, real documentation. Watch our officers train and respond."
+        />
+      </PageBanner>
 
       <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid gap-8 md:grid-cols-2">

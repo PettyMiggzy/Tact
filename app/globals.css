@@ -36,3 +36,21 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Artwork animation (CSS-only so it works in server components) */
+@keyframes art-sweep { to { transform: rotate(360deg); } }
+@keyframes art-dash { to { stroke-dashoffset: -72; } }
+@keyframes art-pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(3.2); opacity: 0; }
+}
+@keyframes art-bar { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.45); } }
+
+.art-sweep { animation: art-sweep 7s linear infinite; }
+.art-dash { animation: art-dash 4s linear infinite; }
+.art-pulse { transform-box: fill-box; transform-origin: center; animation: art-pulse 3.6s ease-out infinite; }
+.art-bar { transform-box: fill-box; transform-origin: center; animation: art-bar 1.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .art-sweep, .art-dash, .art-pulse, .art-bar { animation: none; }
+}

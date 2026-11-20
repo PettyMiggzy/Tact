@@ -3,6 +3,7 @@ import Link from "next/link";
 import dims from "@/lib/image-dims.json";
 import { CREDENTIALS, SERVICES, SITE, TESTIMONIALS, TRAINING_MODULES } from "@/lib/site";
 import { ButtonLink, Eyebrow, SectionHeading } from "@/components/ui";
+import { CareerBadgeArt, HeroArt, IncidentReportArt, SERVICE_ICONS, ServiceIcon, Stars, TopoBackground } from "@/components/art";
 
 const d = dims as unknown as Record<string, [number, number]>;
 
@@ -19,6 +20,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-b from-navy-800 via-navy-900 to-navy-950">
         <div className="grid-bg absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+        <TopoBackground variant={1} />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-[1.3fr_1fr] md:py-28">
           <div>
             <Eyebrow>Indiana contract security &middot; License {SITE.license}</Eyebrow>
@@ -40,7 +42,10 @@ export default function Home() {
           </div>
           <div className="relative mx-auto w-64 sm:w-72 md:w-full md:max-w-sm">
             <div className="absolute inset-0 -z-0 rounded-full bg-gold/10 blur-3xl" />
-            <Image src="/images/logo.png" alt="Superior Tactical Response Agency seal" width={512} height={512} priority className="relative drop-shadow-2xl" />
+            <div className="relative aspect-square w-full">
+              <HeroArt />
+              <Image src="/images/logo.png" alt="Superior Tactical Response Agency seal" width={512} height={512} priority className="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl" />
+            </div>
           </div>
         </div>
       </section>
@@ -83,9 +88,7 @@ export default function Home() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s, i) => (
               <article key={s.title} className="rounded-2xl border border-navy-900/10 bg-white p-7 shadow-sm">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy-900 font-serif text-gold-light">
-                  {i + 1}
-                </span>
+                <ServiceIcon name={SERVICE_ICONS[i]} />
                 <h3 className="mt-5 font-serif text-xl text-navy-900">{s.title}</h3>
                 <p className="mt-3 leading-relaxed text-slate-600">{s.body}</p>
               </article>
@@ -108,6 +111,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
+            <div className="col-span-2 mx-auto w-full max-w-md"><IncidentReportArt /></div>
             <Image src="/images/fleet-1.jpg" alt="Marked Superior Tactical Response patrol vehicles" width={d["fleet-1.jpg"][0]} height={d["fleet-1.jpg"][1]} className="h-full w-full rounded-xl object-cover" />
             <Image src="/images/fleet-2.jpg" alt="Patrol vehicle fleet parked outside a property" width={d["fleet-2.jpg"][0]} height={d["fleet-2.jpg"][1]} className="h-full w-full rounded-xl object-cover" />
           </div>
@@ -147,7 +151,7 @@ export default function Home() {
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (
               <figure key={t.name} className="flex flex-col rounded-2xl border border-navy-900/10 bg-white p-7 shadow-sm">
-                <div aria-label="5 out of 5 stars" className="text-lg tracking-widest text-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <Stars label="5 out of 5 stars" />
                 <blockquote className="mt-4 flex-1 leading-relaxed text-slate-700">&ldquo;{t.quote}&rdquo;</blockquote>
                 <figcaption className="mt-6 border-t border-navy-900/10 pt-4">
                   <p className="font-semibold text-navy-900">{t.name}</p>
@@ -186,7 +190,8 @@ export default function Home() {
 
       {/* CAREERS */}
       <section className="border-y border-white/10 bg-navy-900">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-16 md:grid-cols-[1.4fr_1fr]">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-16 md:grid-cols-[auto_1.4fr_1fr]">
+          <div className="mx-auto hidden h-36 w-36 md:block"><CareerBadgeArt /></div>
           <div>
             <Eyebrow>Now recruiting</Eyebrow>
             <h2 className="mt-3 font-serif text-3xl text-white sm:text-4xl">Consultant opportunities for armed &amp; unarmed security officers</h2>
