@@ -188,7 +188,7 @@ export const SERVICE_ICONS: IconName[] = ["map", "agent", "patrol", "contract", 
 
 export function ServiceIcon({ name }: { name: IconName }) {
   return (
-    <span className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-navy-900 text-gold-light ring-1 ring-gold/30">
+    <span className="flex h-[72px] w-[72px] items-center justify-center bg-gold/10 text-gold-light ring-1 ring-inset ring-gold/40 [clip-path:polygon(0_0,calc(100%-14px)_0,100%_14px,100%_100%,0_100%)]">
       <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         {ICONS[name]}
       </svg>
@@ -299,21 +299,61 @@ export function PageBanner({
   children,
   motif,
   variant = 0,
+  code,
 }: {
   children: ReactNode;
   motif: MotifName;
   variant?: number;
+  code: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-navy-800 to-navy-950 py-20">
+    <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-b from-navy-900 via-navy-950 to-ink">
+      <div aria-hidden="true" className="grid-bg absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
       <TopoBackground variant={variant} />
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-8 px-5">
-        <div className="min-w-0">{children}</div>
-        <div className="hidden h-44 w-44 shrink-0 opacity-90 md:block lg:h-52 lg:w-52">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-10 px-5 pb-20 pt-16 md:pb-24 md:pt-20">
+        <div className="min-w-0">
+          <p className="hud mb-8 text-[11px] text-slate-500">
+            <span className="text-gold">STR</span> / {code}
+          </p>
+          {children}
+        </div>
+        <div className="relative hidden h-56 w-56 shrink-0 md:block lg:h-64 lg:w-64">
           <BannerMotif name={motif} />
         </div>
       </div>
     </section>
+  );
+}
+
+/* ---------- Verified stamp ---------- */
+
+export function VerifiedStamp({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 120" aria-hidden="true" className={className}>
+      <defs>
+        <path id="stamp-ring" d="M60 60 m-43 0 a43 43 0 1 1 86 0 a43 43 0 1 1 -86 0" />
+      </defs>
+      <g fill="none" stroke={GOLD} strokeWidth="2.5">
+        <circle cx="60" cy="60" r="56" />
+        <circle cx="60" cy="60" r="32" strokeWidth="1.5" />
+      </g>
+      <text fill={GOLD} fontSize="12" fontWeight="800" letterSpacing="4" fontFamily="var(--font-mono-hud), monospace">
+        <textPath href="#stamp-ring">VERIFIED · ON FILE · VERIFIED · ON FILE ·</textPath>
+      </text>
+      <path d="M46 60l10 10 19-21" fill="none" stroke={GOLD_LIGHT} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/* ---------- Chevron rank mark (section ornament) ---------- */
+
+export function Chevrons({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 60 48" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="5" strokeLinejoin="miter">
+      <path d="M4 22 30 6l26 16" />
+      <path d="M4 34 30 18l26 16" opacity="0.7" />
+      <path d="M4 46 30 30l26 16" opacity="0.4" />
+    </svg>
   );
 }
 

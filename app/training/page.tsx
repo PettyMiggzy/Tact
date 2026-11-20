@@ -40,19 +40,19 @@ function src(v: Video) {
 export default function TrainingPage() {
   return (
     <>
-      <PageBanner motif="target" variant={0}>
+      <PageBanner motif="target" variant={0} code="Training">
         <SectionHeading
           eyebrow="Courtesy officer training"
-          title="We train to win. Every time."
+          title={<>We train to win. <span className="text-gold-light">Every time.</span></>}
           lead="Real scenarios, real equipment, real documentation. Watch our officers train and respond."
         />
       </PageBanner>
 
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="grid gap-8 md:grid-cols-2">
-          {VIDEOS.map((v) => (
-            <article key={v.id} className="overflow-hidden rounded-2xl border border-white/10 bg-navy-900">
-              <div className="aspect-video bg-black">
+      <section className="mx-auto max-w-7xl px-5 py-20">
+        <div className="grid gap-10 md:grid-cols-2">
+          {VIDEOS.map((v, i) => (
+            <article key={v.id} className="group border border-white/10 bg-navy-950 transition hover:border-gold/50">
+              <div className="relative aspect-video bg-black">
                 <iframe
                   src={src(v)}
                   title={v.title}
@@ -62,19 +62,23 @@ export default function TrainingPage() {
                   className="h-full w-full border-0"
                 />
               </div>
-              <div className="p-5">
-                <h2 className="font-serif text-lg text-white">{v.title}</h2>
+              <div className="border-t border-white/10 p-6">
+                <p className="hud flex items-center gap-2 text-[10px] text-slate-500">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-alert" />
+                  File {String(i + 1).padStart(2, "0")} · {v.provider === "vimeo" ? "Field footage" : "Briefing"}
+                </p>
+                <h2 className="display mt-2 text-3xl text-white">{v.title}</h2>
                 {v.note && <p className="mt-2 text-sm leading-relaxed text-slate-400">{v.note}</p>}
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl border border-gold/30 bg-navy-900 p-8 text-center">
-          <h2 className="font-serif text-2xl text-white">Want officers trained like this on your property?</h2>
+        <div className="cut-corner mt-20 bg-gold p-10 text-center text-ink">
+          <h2 className="display text-4xl sm:text-5xl">Want officers trained like this on your property?</h2>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <ButtonLink href="/contact">Request a consultation</ButtonLink>
-            <ButtonLink href={`tel:${SITE.phones.office.tel}`} variant="outline">{SITE.phones.office.display}</ButtonLink>
+            <ButtonLink href="/contact" variant="dark">Request a consultation</ButtonLink>
+            <ButtonLink href={`tel:${SITE.phones.office.tel}`} variant="dark">{SITE.phones.office.display}</ButtonLink>
           </div>
         </div>
       </section>

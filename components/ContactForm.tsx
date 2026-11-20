@@ -23,25 +23,25 @@ export default function ContactForm() {
   }
 
   const field =
-    "mt-1.5 w-full rounded-lg border border-white/15 bg-navy-900 px-4 py-3 text-white placeholder:text-slate-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold";
+    "mt-2 w-full border border-white/15 bg-ink px-4 py-3.5 text-white placeholder:text-slate-500 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-sm font-medium text-slate-200">
+        <label className="hud block text-[10px] text-slate-400">
           Name
           <input name="name" required autoComplete="name" className={field} />
         </label>
-        <label className="block text-sm font-medium text-slate-200">
+        <label className="hud block text-[10px] text-slate-400">
           Phone
           <input name="phone" type="tel" autoComplete="tel" className={field} />
         </label>
       </div>
-      <label className="block text-sm font-medium text-slate-200">
+      <label className="hud block text-[10px] text-slate-400">
         Email
         <input name="email" type="email" required autoComplete="email" className={field} />
       </label>
-      <label className="block text-sm font-medium text-slate-200">
+      <label className="hud block text-[10px] text-slate-400">
         Property type
         <select name="type" className={field} defaultValue="Commercial">
           <option>Commercial</option>
@@ -51,13 +51,13 @@ export default function ContactForm() {
           <option>Event</option>
         </select>
       </label>
-      <label className="block text-sm font-medium text-slate-200">
+      <label className="hud block text-[10px] text-slate-400">
         How can we help?
         <textarea name="message" rows={5} required placeholder="Tell us about your property and what you need." className={field} />
       </label>
       <button
         type="submit"
-        className="w-full rounded-full bg-gold px-6 py-3.5 font-semibold text-navy-950 transition hover:bg-gold-light sm:w-auto"
+        className="display w-full bg-gold px-8 py-4 text-xl text-ink transition [clip-path:polygon(12px_0,100%_0,calc(100%-12px)_100%,0_100%)] hover:bg-gold-light sm:w-auto"
       >
         Send message
       </button>

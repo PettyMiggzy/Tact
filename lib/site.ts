@@ -120,3 +120,19 @@ export const CREDENTIALS = [
   { file: "cert-completion.jpg", title: "Certificate of Completion", note: "Training certificate of completion awarded to Melvin Hall." },
   { file: "business-award.jpg", title: "Industry Award Plaque", note: "Award recognizing Superior Tactical Response in the security guard service category." },
 ];
+
+/* Personal certifications visible on the agency's own documents (see /public/images). */
+export const LEADER = {
+  name: "Melvin E. Hall II",
+  certs: [
+    "Axon Academy certified",
+    "USCCA Certified Instructor",
+    "Barrett M82A1 / M107A1 Armorer",
+    "Top Shooter Award",
+    "IMPD Certificate of Completion",
+    "NRA Personal Protection in the Home",
+    "State of Indiana Notary Public",
+  ],
+};
+
+export const AFFILIATIONS = ["BBB Accredited · A+", "BBB Complaint-Free 2024", "Indy Chamber Member", `Indiana License SG 22100023`];
