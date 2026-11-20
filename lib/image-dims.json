@@ -1,0 +1,62 @@
+{
+ "logo.png": [
+  512,
+  512
+ ],
+ "fleet-1.jpg": [
+  640,
+  480
+ ],
+ "fleet-2.jpg": [
+  640,
+  480
+ ],
+ "bbb-accreditation.jpg": [
+  960,
+  1280
+ ],
+ "bbb-complaint-free-2024.jpg": [
+  1400,
+  1158
+ ],
+ "axon-academy.jpg": [
+  1400,
+  1050
+ ],
+ "barrett-armorer.jpg": [
+  1400,
+  1050
+ ],
+ "uscca-instructor.jpg": [
+  1400,
+  1050
+ ],
+ "top-shooter.jpg": [
+  1400,
+  1050
+ ],
+ "cert-completion.jpg": [
+  1400,
+  1050
+ ],
+ "business-award.jpg": [
+  646,
+  1400
+ ],
+ "awards-desk.jpg": [
+  640,
+  480
+ ],
+ "newfields-letter.jpg": [
+  960,
+  1280
+ ],
+ "range-team.jpg": [
+  1600,
+  1200
+ ],
+ "dispatch-cards.jpg": [
+  1400,
+  1050
+ ]
+}
